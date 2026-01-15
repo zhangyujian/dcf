@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>大肠粉平台 - 后台管理</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body class="admin-body">
+    <header class="admin-header">
+      <div>
+        <h1>大肠粉 后台管理</h1>
+        <p>用户与交易记录总览</p>
+      </div>
+      <button class="ghost" id="admin-logout">退出</button>
+    </header>
+
+    <main class="admin-main">
+      <section class="card" id="admin-login">
+        <h2>管理员登录</h2>
+        <form id="admin-login-form" class="form">
+          <input name="username" type="text" placeholder="管理员账号" required />
+          <input name="password" type="password" placeholder="管理员密码" required />
+          <button type="submit" class="primary">登录</button>
+        </form>
+      </section>
+
+      <section class="card hidden" id="admin-dashboard">
+        <div class="toolbar">
+          <button class="primary" id="refresh">刷新数据</button>
+          <button class="secondary" id="export">导出 Excel</button>
+        </div>
+
+        <div class="grid">
+          <div>
+            <h3>用户列表</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>邮箱</th>
+                  <th>余额</th>
+                  <th>注册时间</th>
+                </tr>
+              </thead>
+              <tbody id="user-table"></tbody>
+            </table>
+          </div>
+          <div>
+            <h3>交易记录</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>邮箱</th>
+                  <th>类型</th>
+                  <th>金额</th>
+                  <th>余额</th>
+                  <th>时间</th>
+                </tr>
+              </thead>
+              <tbody id="tx-table"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

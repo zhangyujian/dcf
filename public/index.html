@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>大肠粉平台</title>
+    <link rel="icon" href="粘贴的图像.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">
+          <img src="粘贴的图像.png" alt="大肠粉头像" />
+        </div>
+        <div>
+          <div class="brand-title">大肠粉</div>
+          <div class="brand-sub">dcf.zhangyujian.com</div>
+        </div>
+      </div>
+      <div class="topbar-links">
+        <span>推广</span>
+        <span>流量</span>
+        <span>评论</span>
+        <span>关注</span>
+      </div>
+      <div class="topbar-auth" id="auth-actions">
+        <button class="ghost" type="button" data-show="login">登录</button>
+        <span class="divider">|</span>
+        <button class="ghost" type="button" data-show="register">注册</button>
+      </div>
+      <div class="topbar-user hidden" id="topbar-user">
+        <span id="topbar-email"></span>
+        <span class="divider">|</span>
+        <span>积分：<span id="topbar-points">0.00</span></span>
+        <span class="divider">|</span>
+        <a class="ghost-link" href="/orders.html">我的订单</a>
+        <span class="divider">|</span>
+        <button type="button" class="ghost-link" id="topbar-logout">退出登录</button>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <a class="active" href="#" data-view="home">首页</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">Youtube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Twitter/X</a>
+      <a href="#">Telegram</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">更多</a>
+    </nav>
+
+    <section class="home-section hidden" id="home-section">
+      <div class="home-header">
+        <div class="home-logo">大</div>
+        <div class="home-actions">
+          <form class="home-search" id="home-search-form">
+            <input type="text" id="home-search-input" placeholder="请输入搜索内容" />
+            <button type="submit" class="search-btn" id="home-search-btn">搜索</button>
+          </form>
+          <button type="button" class="category-btn" id="category-btn">商品分类</button>
+        </div>
+      </div>
+
+      <div class="home-tabs">
+        <button type="button" class="tab active">首页</button>
+        <div class="tab dropdown">
+          商品分类
+          <div class="category-panel">
+            <div class="category-row">
+              <div class="category-title">时速通知</div>
+              <div class="category-items">时速通知</div>
+              <button type="button" class="category-all">全部</button>
+            </div>
+            <div class="category-row">
+              <div class="category-title">抖音业务</div>
+              <div class="category-items">真人手工粉 | 议秒刷粉/赞 | 真人手工赞 | 协议秒刷赞 | DY投票</div>
+              <button type="button" class="category-all">全部</button>
+            </div>
+            <div class="category-row">
+              <div class="category-title">抖音千川</div>
+              <div class="category-items">不开播(包有) | 开播(不包) | 开播(包有) | 千川精准粉 | 千川播放</div>
+              <button type="button" class="category-all">全部</button>
+            </div>
+            <div class="category-row">
+              <div class="category-title">抖音直播</div>
+              <div class="category-items">真人人气 | 协议不上榜 | 协议上榜 | 直播间点赞 | 跟播互动</div>
+              <button type="button" class="category-all">全部</button>
+            </div>
+            <div class="category-row">
+              <div class="category-title">快手业务</div>
+              <div class="category-items">KS直播综合 | KS灯牌互动 | KS粉丝 | KS点赞 | KS收藏/分享</div>
+              <button type="button" class="category-all">全部</button>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="tab">常见问题</button>
+        <button type="button" class="tab">订单中心</button>
+        <button type="button" class="tab">个人中心</button>
+      </div>
+
+      <div class="home-grid">
+        <div class="home-banner">
+          <div class="banner-tags">小红书 抖音 微博 哔哩哔哩 23大类涨粉点赞 数据提升</div>
+          <div class="banner-title">各位爷，本站24H营业</div>
+          <div class="banner-sub">全网严选可靠货源，一手自营，欢迎各位爷对接</div>
+        </div>
+        <div class="home-side">
+          <div class="side-card">
+            <div class="side-avatar"></div>
+            <div class="side-title">加载失败</div>
+            <div class="side-sub">Hi~欢迎回来</div>
+            <div class="side-stats">
+              <div>已付款</div>
+              <div>待处理</div>
+              <div>处理中</div>
+              <div>退单中</div>
+              <div>异常</div>
+            </div>
+          </div>
+          <div class="side-actions">
+            <button type="button">搭建分站</button>
+            <button type="button">升级会员</button>
+          </div>
+          <div class="side-icons">
+            <span>账户</span>
+            <span>充值</span>
+            <span>佣金</span>
+            <span>订单</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice-bar">
+        <span>售后说明：充值问题，自助充值免手续费，无需等待。</span>
+      </div>
+
+      <div class="product-row" id="product-row">
+        <div class="flash-card">
+          <div class="flash-title">限时秒杀</div>
+          <div class="flash-time">23 : 25 : 57</div>
+        </div>
+        <div class="product-card" data-name="xhs地瓜真人赞 赠收藏">
+          <div class="product-img"></div>
+          <div class="product-name">xhs地瓜真人赞(赠收藏)...</div>
+          <div class="product-price">¥0.5425</div>
+        </div>
+        <div class="product-card" data-name="小薯宝妈无视限流赞">
+          <div class="product-img"></div>
+          <div class="product-name">小薯宝妈无视限流赞(...</div>
+          <div class="product-price">¥0.5425</div>
+        </div>
+        <div class="product-card" data-name="vip大客户商品 抖系列">
+          <div class="product-img"></div>
+          <div class="product-name">vip大客户商品-抖系列...</div>
+          <div class="product-price">¥0.00248</div>
+        </div>
+        <div class="product-card" data-name="DY安全真人秒单赞">
+          <div class="product-img"></div>
+          <div class="product-name">DY安全真人秒单赞(...</div>
+          <div class="product-price">¥0.1155</div>
+        </div>
+      </div>
+      <div class="search-empty hidden" id="search-empty">没有匹配的商品</div>
+    </section>
+
+    <section class="category-section hidden" id="category-section">
+      <div class="category-head">
+        <div class="category-title-pill">商品分类</div>
+        <div class="category-head-links">
+          <button type="button" class="link" id="category-home">首页</button>
+          <span>|</span>
+          <button type="button" class="link" id="category-account">个人中心</button>
+        </div>
+      </div>
+      <div class="category-grid">
+        <div class="category-card">时速通知</div>
+        <div class="category-card">抖音业务</div>
+        <div class="category-card">抖音千川</div>
+        <div class="category-card">抖音直播</div>
+        <div class="category-card">快手业务</div>
+        <div class="category-card">视频号业务</div>
+        <div class="category-card">微博业务</div>
+        <div class="category-card">哔哩业务</div>
+        <div class="category-card">小红书业务</div>
+        <div class="category-card">公众号业务</div>
+        <div class="category-card">头条业务</div>
+        <div class="category-card">西瓜业务</div>
+        <div class="category-card">TikTok</div>
+        <div class="category-card">Instagram</div>
+        <div class="category-card">YouTube</div>
+        <div class="category-card">Facebook</div>
+        <div class="category-card">Telegram</div>
+        <div class="category-card">Twitter</div>
+        <div class="category-card">Spotify</div>
+        <div class="category-card">邮箱</div>
+        <div class="category-card">APP</div>
+        <div class="category-card">苹果id</div>
+        <div class="category-card">短链接码</div>
+        <div class="category-card">网课业务</div>
+        <div class="category-card">音乐系列</div>
+        <div class="category-card">网易云音乐</div>
+        <div class="category-card">QQ音乐</div>
+      </div>
+    </section>
+
+    <main class="hero" id="auth-section">
+      <section class="auth-card" id="auth-card">
+        <h2>登录您的账户！</h2>
+        <form id="login-form" class="form">
+          <label class="field">
+            <span class="icon">✉</span>
+            <input name="email" type="email" placeholder="输入您的邮箱号" required />
+          </label>
+          <label class="field">
+            <span class="icon">🔑</span>
+            <input name="password" type="password" placeholder="您的登录密码" required />
+          </label>
+          <div class="field code-field">
+            <span class="icon">🛡</span>
+            <input name="captcha" type="text" placeholder="验证码" required />
+            <img id="login-captcha-img" class="captcha-img" alt="验证码" />
+            <button type="button" class="code-btn" id="login-captcha-refresh">换一张</button>
+          </div>
+          <button type="submit" class="primary">登录</button>
+          <p class="assist">
+            还没有账号？<button type="button" class="link" data-show="register">马上注册</button>
+          </p>
+          <button type="button" class="link">忘记密码</button>
+        </form>
+
+        <form id="register-form" class="form hidden">
+          <label class="field">
+            <span class="icon">✉</span>
+            <input name="email" type="email" placeholder="邮箱" required />
+          </label>
+          <div class="field code-field">
+            <span class="icon">🛡</span>
+            <input name="code" type="text" placeholder="验证码" required />
+            <button type="button" class="code-btn" id="send-code">获取邮箱验证码</button>
+          </div>
+          <label class="field">
+            <span class="icon">🔒</span>
+            <input name="password" type="password" placeholder="设置登录密码" minlength="6" required />
+          </label>
+          <label class="field">
+            <span class="icon">🔒</span>
+            <input name="confirm" type="password" placeholder="确认密码" minlength="6" required />
+          </label>
+          <button type="submit" class="primary">注册</button>
+          <p class="assist">
+            已有账号？<button type="button" class="link" data-show="login">返回登录</button>
+          </p>
+        </form>
+      </section>
+
+      <div class="system-toast hidden" id="system-toast">
+        <div class="toast-card">
+          <div class="toast-header">
+            <strong>系统提示:</strong>
+            <button type="button" class="toast-close" id="toast-close">×</button>
+          </div>
+          <p>您已经登录</p>
+          <div class="toast-links">
+            <button type="button" class="link" id="toast-home">返回首页</button>
+            <span>|</span>
+            <button type="button" class="link" id="toast-order-now">立即下单</button>
+            <span>|</span>
+            <a class="link" id="toast-orders" href="/orders.html">我的订单</a>
+          </div>
+        </div>
+        <div class="toast-pill">登录成功!</div>
+      </div>
+
+      <div class="login-modal hidden" id="login-modal">
+        <div class="login-modal-card">
+          <button type="button" class="toast-close" id="login-modal-close">×</button>
+          <p>上次登录IP：<span id="last-login-ip">暂无</span></p>
+          <p>上次登录时间：<span id="last-login-time">暂无</span></p>
+          <button type="button" class="primary" id="login-modal-ok">知道了</button>
+        </div>
+      </div>
+
+      <section class="dashboard hidden" id="dashboard">
+        <div class="dash-header">
+          <h2>账户中心</h2>
+          <button class="ghost" id="logout">退出</button>
+        </div>
+        <div class="balance-card">
+          <div>
+            <p class="label">当前余额</p>
+            <p class="balance" id="balance">¥0.00</p>
+          </div>
+          <div class="user" id="current-user"></div>
+        </div>
+
+        <div class="actions">
+          <form id="recharge-form" class="mini-form">
+            <h3>充值</h3>
+            <input type="number" name="amount" min="1" step="0.01" placeholder="输入充值金额" required />
+            <button type="submit" class="primary">立即充值</button>
+          </form>
+          <form id="consume-form" class="mini-form">
+            <h3>消费</h3>
+            <input type="number" name="amount" min="1" step="0.01" placeholder="输入消费金额" required />
+            <button type="submit" class="primary">确认消费</button>
+          </form>
+        </div>
+
+        <div class="log">
+          <h3>交易记录</h3>
+          <ul id="log-list"></ul>
+        </div>
+      </section>
+
+      <aside class="chat">
+        <div class="chat-header">
+          <span class="dot"></span>
+          聊天
+        </div>
+        <div class="chat-body">
+          <div class="chat-avatar"></div>
+          <div class="chat-message">
+            <strong>大肠粉</strong>
+            <p>请问有什么可以帮您 大肠粉?</p>
+            <small>上次活动 2024/12/17</small>
+          </div>
+        </div>
+        <div class="chat-input">输入你的信息...</div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <h4>联系方式</h4>
+        <p>WeChat:</p>
+        <p>Email:</p>
+      </div>
+      <div class="copyright">Copyright © 2026 大肠粉平台</div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

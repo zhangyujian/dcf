@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>我的订单 - 大肠粉平台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="orders.css" />
+  </head>
+  <body>
+    <header class="orders-header">
+      <div>
+        <h1>我的订单</h1>
+        <p>展示最近交易记录</p>
+      </div>
+      <div class="header-actions">
+        <a href="/" class="ghost">返回首页</a>
+        <button type="button" class="ghost" id="logout">退出登录</button>
+      </div>
+    </header>
+
+    <main class="orders-main">
+      <section class="card">
+        <div class="summary">
+          <div>
+            <span>当前账户</span>
+            <strong id="user-email">-</strong>
+          </div>
+          <div>
+            <span>余额</span>
+            <strong id="user-balance">¥0.00</strong>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>时间</th>
+              <th>类型</th>
+              <th>金额</th>
+              <th>余额</th>
+            </tr>
+          </thead>
+          <tbody id="orders-table"></tbody>
+        </table>
+        <div class="empty hidden" id="orders-empty">暂无订单记录</div>
+      </section>
+    </main>
+
+    <script src="orders.js"></script>
+  </body>
+</html>
