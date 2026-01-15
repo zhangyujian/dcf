@@ -281,14 +281,28 @@ const makeCaptchaSvg = (code) => {
 </svg>`;
 };
 
-app.get("/api/login-captcha", async (req, res) => {
-  await initPromise;
+const createCaptcha = async () => {
   const code = String(Math.floor(1000 + Math.random() * 9000));
   const id = randomUUID();
   const expiresAt = addMinutes(5);
   await insertLoginCaptcha(id, code, expiresAt);
   const svg = makeCaptchaSvg(code);
+  return { id, svg };
+};
+
+app.get("/api/login-captcha", async (req, res) => {
+  await initPromise;
+  const { id, svg } = await createCaptcha();
   res.json({ id, svg });
+});
+
+app.get("/api/login-captcha.svg", async (req, res) => {
+  await initPromise;
+  const { id, svg } = await createCaptcha();
+  res.setHeader("Content-Type", "image/svg+xml");
+  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("X-Captcha-Id", id);
+  res.send(svg);
 });
 
 app.post("/api/login", async (req, res) => {

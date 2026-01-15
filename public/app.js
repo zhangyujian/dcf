@@ -24,6 +24,7 @@ const loginModalOk = document.getElementById("login-modal-ok");
 const lastLoginIp = document.getElementById("last-login-ip");
 const lastLoginTime = document.getElementById("last-login-time");
 let loginCaptchaId = "";
+let captchaObjectUrl = "";
 let loginModalLocked = true;
 const homeSection = document.getElementById("home-section");
 const authSection = document.getElementById("auth-section");
@@ -401,18 +402,22 @@ const loadLoginCaptcha = async () => {
     return;
   }
   try {
-    const res = await fetch("/api/login-captcha");
+    const res = await fetch("/api/login-captcha.svg", { cache: "no-store" });
     if (!res.ok) {
       throw new Error("captcha request failed");
     }
-    const data = await res.json();
-    if (!data?.svg || !data?.id) {
-      throw new Error("captcha payload missing");
+    const id = res.headers.get("x-captcha-id");
+    if (!id) {
+      throw new Error("captcha id missing");
     }
-    loginCaptchaId = data.id;
-    loginCaptchaImg.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
-      data.svg
-    )}`;
+    const blob = await res.blob();
+    if (captchaObjectUrl) {
+      URL.revokeObjectURL(captchaObjectUrl);
+    }
+    captchaObjectUrl = URL.createObjectURL(blob);
+    loginCaptchaId = id;
+    loginCaptchaImg.src = captchaObjectUrl;
+    loginCaptchaImg.alt = "验证码";
   } catch (error) {
     loginCaptchaImg.removeAttribute("src");
     loginCaptchaImg.alt = "验证码加载失败";
