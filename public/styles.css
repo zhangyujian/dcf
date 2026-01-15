@@ -797,6 +797,10 @@ body {
   z-index: 5;
 }
 
+.login-modal.hidden {
+  display: none;
+}
+
 .login-modal-card {
   width: min(420px, 92vw);
   background: #fff;
