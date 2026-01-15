@@ -400,10 +400,23 @@ const loadLoginCaptcha = async () => {
   if (!loginCaptchaImg) {
     return;
   }
-  const res = await fetch("/api/login-captcha");
-  const data = await res.json();
-  loginCaptchaId = data.id;
-  loginCaptchaImg.src = `data:image/svg+xml;base64,${btoa(data.svg)}`;
+  try {
+    const res = await fetch("/api/login-captcha");
+    if (!res.ok) {
+      throw new Error("captcha request failed");
+    }
+    const data = await res.json();
+    if (!data?.svg || !data?.id) {
+      throw new Error("captcha payload missing");
+    }
+    loginCaptchaId = data.id;
+    loginCaptchaImg.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+      data.svg
+    )}`;
+  } catch (error) {
+    loginCaptchaImg.removeAttribute("src");
+    loginCaptchaImg.alt = "验证码加载失败";
+  }
 };
 
 if (loginCaptchaRefresh) {
